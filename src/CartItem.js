@@ -23,7 +23,7 @@ class CartItem extends React.Component {
       //   qty: this.state.qty+1
       // });
 
-      // setState form 2
+      // setState form 2 -if prevState is required we used this form
       this.setState((prevState)=>{
         return{
           qty: prevState.qty+1
@@ -31,6 +31,21 @@ class CartItem extends React.Component {
       });
 
   }
+
+
+    decreaseQuantity=()=>{
+      const { qty} = this.state;
+
+      if(qty===0){
+        return;
+      }
+
+      this.setState((prevState)=>{
+        return{
+          qty: prevState.qty-1
+        }
+      });
+    }
 
   render () {
     const { price, title, qty } = this.state;
@@ -52,8 +67,19 @@ class CartItem extends React.Component {
              onClick = {this.increaseQuantity}   
             />
 
-            <img alt="decrease" className="action-icons" src="https://image.flaticon.com/icons/svg/1665/1665612.svg" />
-            <img alt="delete" className="action-icons" src="https://image.flaticon.com/icons/svg/1214/1214428.svg" />
+            <img alt="decrease" 
+            className="action-icons"
+             src="https://image.flaticon.com/icons/svg/1665/1665612.svg" 
+                onClick ={ this.decreaseQuantity}
+
+             />
+
+            <img alt="delete" 
+            className="action-icons" 
+            src="https://image.flaticon.com/icons/svg/1214/1214428.svg" 
+
+            />
+
           </div>
         </div>
       </div>
