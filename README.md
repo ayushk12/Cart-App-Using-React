@@ -9,3 +9,6 @@ Features:
 - display total cart counts dynamic 
   functionality.
 
+# hosting link:
+https://cart-ayush.netlify.app/
+
